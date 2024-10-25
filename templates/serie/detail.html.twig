@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %} Detail de la série {% endblock %}
+
+
+{% block body %}
+
+
+    <div class="gap-3 flex-row justify-content-center d-flex mt-5">
+
+        <div style="height: 300px;" class=" d-inline-block rounded-4 overflow-hidden">
+
+            <img  width="300px" class="img-fluid h-100 w-100" src="{{ asset('resources/posters/series/' ~ serie.poster) }}" loading="lazy"
+                 alt="{{ serie.name }}"/>
+
+        </div>
+
+
+        <div class="w-50">
+            <h1 class="text-left">{{ serie.name }}</h1>
+            <p>{{ serie.genres }}</p>
+
+            <p>{{ serie.overview }}</p>
+                <a class="btn btn-primary" href="{{ path('serie_update', {'id':serie.id}) }}">Editer</a>
+        </div>
+
+
+
+
+        {#
+        {% for serie in series %}
+
+
+            <a style="height: 300px;" class=" d-inline-block rounded-4 overflow-hidden" href="{{ path('serie_detail', {'id': serie.id}) }}">
+                <img class="img-fluid h-100 w-100" src="{{ asset('resources/posters/series/' ~ serie.poster) }}" width="300px" loading="lazy" alt="{{ serie.name }}"/>
+            </a>
+
+
+        {% endfor %}
+        #}
+    </div>
+
+{% endblock %}
+
+
+
+
+{#
+{% block body %}
+
+    <h1> Détail de la série </h1>
+
+    <ul>
+        <li>{{ serie.name }}</li>
+        <li>{{  serie.overview }}</li>
+        <li>{{  serie.status }}</li>
+        <li>{{  serie.name }}</li>
+        <li>{{  serie.firstAirDate|date('d/m/Y') }}</li>
+
+
+    </ul>
+
+
+{%  endblock %} #}

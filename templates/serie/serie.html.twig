@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Toutes les séries{% endblock %}
+
+{% block body %}
+    <h1 class="mt-5 text-center">Toutes les séries</h1>
+
+    <div class="align-items-start gap-3 flex-wrap justify-content-center d-flex mt-5">
+
+    {% for serie in series %}
+
+
+    <a style="height: 300px;" class=" d-inline-block rounded-4 overflow-hidden" href="{{ path('serie_detail', {'id': serie.id}) }}">
+        <img class="img-fluid h-100 w-100" src="{{ asset('resources/posters/series/' ~ serie.poster) }}" width="300px" loading="lazy" alt="{{ serie.name }}"/>
+    </a>
+
+
+    {% endfor %}
+    </div>
+
+{% endblock %}
+
+{#
+    <table>
+        {% for serie in series %}
+            <tr>
+                <td>
+                    <a href="{{ path('serie_detail', {'id': serie.id}) }}">
+                        <img src="{{ asset('resources/posters/series/' ~ serie.poster) }}" width="300px" loading="lazy" alt="{{ serie.name }}"/>
+                    </a>
+                </td>
+                <td><a href="{{ path('serie_detail', {'id': serie.id}) }}">{{ serie.name }}</a></td>
+                <td>{{ serie.overview }}</td>
+                <td>{{ serie.status }}</td>
+                <td>{{ serie.genres | join(', ') }}</td> {# Join genres if it's an array
+                <td>{{ serie.firstAirDate | date('d/m/Y') }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+#}
+
+
