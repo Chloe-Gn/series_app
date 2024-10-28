@@ -26,6 +26,15 @@
         </div>
 
 
+<h2>Saisons</h2>
+
+        <ul>
+            {%  for season in serie.seasons %}
+            <li> {{ season.number }} : {{ season.overview }}</li>
+            {%  endfor %}
+        </ul>
+
+
 
 
         {#
